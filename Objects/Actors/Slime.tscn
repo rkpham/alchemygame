@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Assets/ActorSprites/slime.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/ActorSprites/slime.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 2.5 )
+extents = Vector2( 7, 2.5 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -27,14 +27,15 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 11.5 )
+position = Vector2( 0, 13 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 5
-frame = 3
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+playback_process_mode = 0
 anims/idle = SubResource( 2 )

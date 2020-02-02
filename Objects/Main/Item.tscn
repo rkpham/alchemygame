@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Shaders/outline.shader" type="Shader" id=1]
+[ext_resource path="res://Assets/Sprites/ItemSprites/tentacle.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Main/Item.gd" type="Script" id=3]
+
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/outLineSize = 0.0
+shader_param/outLineColor = Plane( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 15 )
+
+[node name="Item" type="Sprite"]
+material = SubResource( 1 )
+z_index = 800
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="ItemBound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemBound"]
+shape = SubResource( 2 )
+[connection signal="area_entered" from="ItemBound" to="." method="_on_ItemBound_area_entered"]
+[connection signal="area_exited" from="ItemBound" to="." method="_on_ItemBound_area_exited"]

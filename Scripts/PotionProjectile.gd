@@ -1,22 +1,41 @@
 extends Sprite
 
+const GLASS_PARTICLE = preload("res://Objects/Projectiles/GlassProjectile.tscn")
 export (int) var speed = 150
 var velocity = Vector2()
+var height = 8
 
 var global_target_position
 
 func move(delta):
 	global_target_position = global_position + velocity
-	self.look_at(global_target_position)
+	#self.look_at(global_target_position)
 	global_position = global_target_position
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	offset = Vector2(0, -height)
 
 func _physics_process(delta):
+	offset = Vector2(0, -height)
+	height -= 0.1
 	velocity = velocity.normalized() * speed * delta
 	move(delta)
 
-func _on_Timer_timeout():
+func splash():
 	queue_free()
+	for i in range(5):
+		var n_glass = GLASS_PARTICLE.instance()
+		get_parent().add_child(n_glass)
+		n_glass.frame = randi()%4
+		n_glass.global_position = global_position
+		var randomx = randi()%300-150
+		var randomy = randi()%300-150
+		n_glass.velocity = Vector2(randomx, randomy)
+	self.visible = false
+
+func _on_Timer_timeout():
+	splash()
+
+func _on_Area2D_body_entered(body):
+	if body.name == "TileMap":
+		splash()
