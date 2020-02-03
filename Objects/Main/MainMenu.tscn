@@ -11,6 +11,6 @@ custom_constants/margin_bottom = 40
 [node name="Button" type="Button" parent="."]
 margin_left = 60.0
 margin_top = 40.0
-margin_right = 623.0
-margin_bottom = 344.0
+margin_right = 580.0
+margin_bottom = 320.0
 text = "start"
