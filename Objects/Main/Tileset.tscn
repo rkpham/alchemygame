@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/wall.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/wallceiling.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon2.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon4.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -249,54 +250,54 @@ hframes = 3
 frame = 7
 
 [node name="ExtraUL" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 
 [node name="ExtraU" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 1
 
 [node name="ExtraUR" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 2
 
 [node name="ExtraML" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 3
 
 [node name="ExtraM" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 4
 
 [node name="ExtraMR" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 5
 
 [node name="ExtraDL" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 6
 
 [node name="ExtraD" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 7
 
 [node name="ExtraDR" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 vframes = 3
 hframes = 3
 frame = 8

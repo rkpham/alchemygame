@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=2]
+[gd_resource type="TileSet" load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/wall.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/wallceiling.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodtile.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon2.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon4.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -415,7 +416,7 @@ extents = Vector2( 8, 8 )
 38/shapes = [  ]
 38/z_index = 0
 39/name = "ExtraUL"
-39/texture = ExtResource( 7 )
+39/texture = ExtResource( 8 )
 39/tex_offset = Vector2( 0, 0 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 0, 0, 16, 16 )
@@ -425,7 +426,7 @@ extents = Vector2( 8, 8 )
 39/shapes = [  ]
 39/z_index = 0
 40/name = "ExtraU"
-40/texture = ExtResource( 7 )
+40/texture = ExtResource( 8 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 16, 0, 16, 16 )
@@ -435,7 +436,7 @@ extents = Vector2( 8, 8 )
 40/shapes = [  ]
 40/z_index = 0
 41/name = "ExtraUR"
-41/texture = ExtResource( 7 )
+41/texture = ExtResource( 8 )
 41/tex_offset = Vector2( 0, 0 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 32, 0, 16, 16 )
@@ -445,7 +446,7 @@ extents = Vector2( 8, 8 )
 41/shapes = [  ]
 41/z_index = 0
 42/name = "ExtraML"
-42/texture = ExtResource( 7 )
+42/texture = ExtResource( 8 )
 42/tex_offset = Vector2( 0, 0 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 0, 16, 16, 16 )
@@ -455,7 +456,7 @@ extents = Vector2( 8, 8 )
 42/shapes = [  ]
 42/z_index = 0
 43/name = "ExtraM"
-43/texture = ExtResource( 7 )
+43/texture = ExtResource( 8 )
 43/tex_offset = Vector2( 0, 0 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 16, 16, 16, 16 )
@@ -465,7 +466,7 @@ extents = Vector2( 8, 8 )
 43/shapes = [  ]
 43/z_index = 0
 44/name = "ExtraMR"
-44/texture = ExtResource( 7 )
+44/texture = ExtResource( 8 )
 44/tex_offset = Vector2( 0, 0 )
 44/modulate = Color( 1, 1, 1, 1 )
 44/region = Rect2( 32, 16, 16, 16 )
@@ -475,7 +476,7 @@ extents = Vector2( 8, 8 )
 44/shapes = [  ]
 44/z_index = 0
 45/name = "ExtraDL"
-45/texture = ExtResource( 7 )
+45/texture = ExtResource( 8 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 32, 16, 16 )
@@ -485,7 +486,7 @@ extents = Vector2( 8, 8 )
 45/shapes = [  ]
 45/z_index = 0
 46/name = "ExtraD"
-46/texture = ExtResource( 7 )
+46/texture = ExtResource( 8 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 16, 32, 16, 16 )
@@ -495,7 +496,7 @@ extents = Vector2( 8, 8 )
 46/shapes = [  ]
 46/z_index = 0
 47/name = "ExtraDR"
-47/texture = ExtResource( 7 )
+47/texture = ExtResource( 8 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 32, 32, 16, 16 )
