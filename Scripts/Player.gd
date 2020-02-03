@@ -1,6 +1,10 @@
 extends KinematicBody2D
 
+#Custom signals
+signal health_changed
+
 var ASP
+var GUI
 const ITEM_GET = preload("res://Assets/Audio/SFX/ItemGet.wav")
 const BULLET = preload("res://Objects/Projectiles/PotionProjectile.tscn")
 export (int) var speed = 200
@@ -39,6 +43,12 @@ var fire_cycle = 0
 var fire_rate = 0.1
 var firing = false
 
+#Hurt function
+func hurt(x):
+	health -= x
+	$Camera2D.shake(0.25, 100, 5)
+	emit_signal("health_changed", health)
+
 #Function for firing a bullet
 func fire():
 	var n_bullet = BULLET.instance()
@@ -68,12 +78,14 @@ func get_input():
 	facing = (get_global_mouse_position()-global_position).normalized()
 
 func _ready():
+	GUI = get_node("/root/Game/GUI")
 	ASP = get_node("/root/Game/Audio")
 
 func _process(delta):
 	get_input()
 	player_turn = direct8(facing)
 	
+	#Walking animation
 	if (w || a || s || d):
 		walk_cycle += delta*20
 		if walk_cycle > walk_rate:
@@ -82,17 +94,21 @@ func _process(delta):
 	else:
 		walk_cycle = 0
 	
+	#Interacting with nearby items
 	if (e):
 		for area in nearbyareas:
 			if (area.name == "ItemBound"):
 				var id = area.get_parent().id
+				#If not already in the items array
 				if items.find(id) == -1:
 					items.append(id)
 					area.get_parent().queue_free()
+					#Play sound
 					ASP.stream = ITEM_GET
 					ASP.play()
 					print("Added item " + str(id))
 	
+	#Shooting
 	if (clicking):
 		firing = true
 	else:
@@ -105,6 +121,7 @@ func _process(delta):
 	else:
 		fire_cycle = 0
 	
+	#Turns the player towards the mouse
 	if (player_turn == 0):
 		$Sprite.frame = 2 + int(walk_bounce)*8
 	elif (player_turn == 1):
@@ -122,9 +139,11 @@ func _process(delta):
 	elif (player_turn == 7):
 		$Sprite.frame = 3 + int(walk_bounce)*8
 
+#Move the player
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
+#Checking for items in reach of the player
 func _on_ItemReach_area_entered(area):
 	if area.name == "ItemBound":
 		if nearbyareas.find(area) == -1:

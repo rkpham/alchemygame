@@ -23,4 +23,5 @@ func _on_Timer_timeout():
 	queue_free()
 
 func _on_Area2D_body_entered(body):
-	speed = 0
+	if (body.name == "TileMap"):
+		speed = 0
