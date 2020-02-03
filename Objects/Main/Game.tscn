@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Main/GUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Main/Room1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Rooms/Room1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Actors/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Main/Item.tscn" type="PackedScene" id=6]
