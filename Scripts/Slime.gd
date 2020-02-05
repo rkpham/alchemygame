@@ -3,19 +3,19 @@ extends KinematicBody2D
 export (int) var speed = 20
 
 var playerhurting
-var player
-var player_position
+var target
+var target_position
 var velocity = Vector2()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite/AnimationPlayer.play("idle")
-	player = get_node("/root/Game/TileMap/Player")
-	player_position = player.global_position
+	target = get_node("/root/Game/TileMap/Player")
+	target_position = target.global_position
 
 func _physics_process(delta):
-	player_position = player.global_position
-	velocity = (player_position-global_position).normalized()*speed
+	target_position = target.global_position
+	velocity = (target_position-global_position).normalized()*speed
 	velocity = move_and_slide(velocity)
 
 func _on_Area2D_area_entered(area):
