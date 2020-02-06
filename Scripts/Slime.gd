@@ -10,7 +10,7 @@ var velocity = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite/AnimationPlayer.play("idle")
-	target = get_node("/root/Game/TileMap/Player")
+	target = self.get_parent().get_node("Player")
 	target_position = target.global_position
 
 func _physics_process(delta):
