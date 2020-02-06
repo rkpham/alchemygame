@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Roguelike Game"
 run/main_scene="res://Objects/Main/Game.tscn"
+config/icon="res://icon.png"
 
 [display]
 
