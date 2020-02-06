@@ -1,13 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/wall.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/EnvironmentSprites/wallceiling.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodtile.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon0.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon2.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon4.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwall.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallback.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallbackcorner.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallbackcornerinclusive.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallside.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwalll.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallr.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodceiling.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodtile.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon0.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon4.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -34,270 +42,350 @@ offset = Vector2( 0, -32 )
 position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
-[node name="WoodTile" type="Sprite" parent="."]
+[node name="WoodWall" type="Sprite" parent="."]
 texture = ExtResource( 3 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWall/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodWallBack" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWallBack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWallBack/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodWallBackSide" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWallBackSide"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWallBackSide/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodWallBackSide2" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWallBackSide2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWallBackSide2/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodWallSide" type="Sprite" parent="."]
+texture = ExtResource( 7 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWallSide"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWallSide/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodWallLeft" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWallLeft"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWallLeft/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodWallRight" type="Sprite" parent="."]
+texture = ExtResource( 9 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodWallRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodWallRight/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodCeiling" type="Sprite" parent="."]
+texture = ExtResource( 10 )
+offset = Vector2( 0, -32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WoodCeiling"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodCeiling/StaticBody2D"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="WoodTile" type="Sprite" parent="."]
+texture = ExtResource( 11 )
 
 [node name="GrassUL" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 
 [node name="GrassU" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 1
 
 [node name="GrassUR" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 2
 
 [node name="GrassML" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 3
 
 [node name="GrassM" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 4
 
 [node name="GrassMR" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 5
 
 [node name="GrassDL" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 6
 
 [node name="GrassD" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 7
 
 [node name="GrassDR" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 vframes = 3
 hframes = 3
 frame = 8
 
 [node name="WaterUL" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 
 [node name="WaterU" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 1
 
 [node name="WaterUR" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 2
 
 [node name="WaterML" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 3
 
 [node name="WaterM" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 4
 
 [node name="WaterMR" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 5
 
 [node name="WaterDL" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 6
 
 [node name="WaterDR" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 8
 
 [node name="WaterD" type="Sprite" parent="."]
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 vframes = 3
 hframes = 3
 frame = 7
 
 [node name="RockyUL" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 
 [node name="RockyU" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 1
 
 [node name="RockyUR" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 2
 
 [node name="RockyML" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 3
 
 [node name="RockyM" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 4
 
 [node name="RockyMR" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 5
 
 [node name="RockyDL" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 6
 
 [node name="RockyD" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 7
 
 [node name="RockyDR" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 vframes = 3
 hframes = 3
 frame = 8
 
 [node name="WetUL" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 
 [node name="WetU" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 1
 
 [node name="WetUR" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 2
 
 [node name="WetML" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 3
 
 [node name="WetM" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 4
 
 [node name="WetMR" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 5
 
 [node name="WetDL" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 6
 
 [node name="WetDR" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 8
 
 [node name="WetD" type="Sprite" parent="."]
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 vframes = 3
 hframes = 3
 frame = 7
 
 [node name="ExtraUL" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 
 [node name="ExtraU" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 1
 
 [node name="ExtraUR" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 2
 
 [node name="ExtraML" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 3
 
 [node name="ExtraM" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 4
 
 [node name="ExtraMR" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 5
 
 [node name="ExtraDL" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 6
 
 [node name="ExtraD" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 7
 
 [node name="ExtraDR" type="Sprite" parent="."]
-texture = ExtResource( 8 )
+texture = ExtResource( 16 )
 vframes = 3
 hframes = 3
 frame = 8

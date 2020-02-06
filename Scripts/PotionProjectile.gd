@@ -37,5 +37,5 @@ func _on_Timer_timeout():
 	splash()
 
 func _on_Area2D_body_entered(body):
-	if body.name == "TileMap":
+	if body.name == "Map":
 		splash()
