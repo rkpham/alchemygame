@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodtile.png" type="Texture" id=2]
-
-
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -20,4 +17,3 @@ margin_bottom = -10.0
 [node name="Bar" type="TextureProgress" parent="Health"]
 margin_right = 620.0
 margin_bottom = 20.0
-texture_progress = ExtResource( 2 )
