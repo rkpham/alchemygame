@@ -1,44 +1,41 @@
-[gd_resource type="TileSet" load_steps=18 format=2]
+[gd_resource type="TileSet" load_steps=17 format=2]
 
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/wall.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/wallceiling.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon0.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon3.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwall.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon2.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallback.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallbackcorner.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/Yggdrasil Dungeon4.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallside.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallbackcornerinclusive.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodceiling.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwalll.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallr.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodtile.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwall.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallback.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallbackcorner.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallside.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallbackcornerinclusive.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodceiling.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwalll.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/EnvironmentSprites/woodwall/woodwallr.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/wallceiling.png-43711792122e64f87708957aa2d07009.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/Yggdrasil Dungeon0.png-95029a130e5d8f77d8c5fea6505938bc.stex"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/Yggdrasil Dungeon3.png-43a799776cf2e8873bcf87379738a01d.stex"
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/Yggdrasil Dungeon2.png-f3776770eaa0b2f1c027e06bdd211692.stex"
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/Yggdrasil Dungeon1.png-7742babd085fd6923dc55af77528e0dd.stex"
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/Yggdrasil Dungeon4.png-00fe300b592326fc9f9080f8b8ac8416.stex"
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/woodtile.png-e27d7f274c76e91581a8719987ff848d.stex"
+
 [resource]
-0/name = "Wall"
-0/texture = ExtResource( 1 )
-0/tex_offset = Vector2( 0, -32 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 16, 48 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 8, 24 )
-0/navigation_offset = Vector2( 8, 24 )
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 8, 8 )
-} ]
-0/z_index = 0
 1/name = "WallCeiling"
-1/texture = ExtResource( 2 )
+1/texture = SubResource( 2 )
 1/tex_offset = Vector2( 0, -32 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 16, 48 )
@@ -54,7 +51,7 @@ extents = Vector2( 8, 8 )
 } ]
 1/z_index = 0
 2/name = "WoodWall"
-2/texture = ExtResource( 5 )
+2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, -32 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 16, 48 )
@@ -70,7 +67,7 @@ extents = Vector2( 8, 8 )
 } ]
 2/z_index = 0
 3/name = "WoodWallBack"
-3/texture = ExtResource( 7 )
+3/texture = ExtResource( 2 )
 3/tex_offset = Vector2( 0, -32 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 16, 48 )
@@ -86,7 +83,7 @@ extents = Vector2( 8, 8 )
 } ]
 3/z_index = 0
 4/name = "WoodWallBackSide"
-4/texture = ExtResource( 9 )
+4/texture = ExtResource( 3 )
 4/tex_offset = Vector2( 0, -32 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 16, 48 )
@@ -102,7 +99,7 @@ extents = Vector2( 8, 8 )
 } ]
 4/z_index = 0
 5/name = "WoodWallSide"
-5/texture = ExtResource( 11 )
+5/texture = ExtResource( 4 )
 5/tex_offset = Vector2( 0, -32 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 16, 48 )
@@ -118,7 +115,7 @@ extents = Vector2( 8, 8 )
 } ]
 5/z_index = 0
 6/name = "WoodWallLeft"
-6/texture = ExtResource( 14 )
+6/texture = ExtResource( 7 )
 6/tex_offset = Vector2( 0, -32 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 16, 48 )
@@ -134,7 +131,7 @@ extents = Vector2( 8, 8 )
 } ]
 6/z_index = 0
 7/name = "WoodWallRight"
-7/texture = ExtResource( 15 )
+7/texture = ExtResource( 8 )
 7/tex_offset = Vector2( 0, -32 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 16, 48 )
@@ -150,7 +147,7 @@ extents = Vector2( 8, 8 )
 } ]
 7/z_index = 0
 8/name = "WoodTile"
-8/texture = ExtResource( 16 )
+8/texture = SubResource( 8 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 16, 16 )
@@ -160,7 +157,7 @@ extents = Vector2( 8, 8 )
 8/shapes = [  ]
 8/z_index = 0
 9/name = "GrassUL"
-9/texture = ExtResource( 3 )
+9/texture = SubResource( 3 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 16, 16 )
@@ -170,7 +167,7 @@ extents = Vector2( 8, 8 )
 9/shapes = [  ]
 9/z_index = 0
 10/name = "GrassU"
-10/texture = ExtResource( 3 )
+10/texture = SubResource( 3 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 16, 0, 16, 16 )
@@ -180,7 +177,7 @@ extents = Vector2( 8, 8 )
 10/shapes = [  ]
 10/z_index = 0
 11/name = "GrassUR"
-11/texture = ExtResource( 3 )
+11/texture = SubResource( 3 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 32, 0, 16, 16 )
@@ -190,7 +187,7 @@ extents = Vector2( 8, 8 )
 11/shapes = [  ]
 11/z_index = 0
 12/name = "GrassML"
-12/texture = ExtResource( 3 )
+12/texture = SubResource( 3 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 0, 16, 16, 16 )
@@ -200,7 +197,7 @@ extents = Vector2( 8, 8 )
 12/shapes = [  ]
 12/z_index = 0
 13/name = "GrassM"
-13/texture = ExtResource( 3 )
+13/texture = SubResource( 3 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 16, 16, 16, 16 )
@@ -210,7 +207,7 @@ extents = Vector2( 8, 8 )
 13/shapes = [  ]
 13/z_index = 0
 14/name = "GrassMR"
-14/texture = ExtResource( 3 )
+14/texture = SubResource( 3 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 32, 16, 16, 16 )
@@ -220,7 +217,7 @@ extents = Vector2( 8, 8 )
 14/shapes = [  ]
 14/z_index = 0
 15/name = "GrassDL"
-15/texture = ExtResource( 3 )
+15/texture = SubResource( 3 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 32, 16, 16 )
@@ -230,7 +227,7 @@ extents = Vector2( 8, 8 )
 15/shapes = [  ]
 15/z_index = 0
 16/name = "GrassD"
-16/texture = ExtResource( 3 )
+16/texture = SubResource( 3 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 16, 32, 16, 16 )
@@ -240,7 +237,7 @@ extents = Vector2( 8, 8 )
 16/shapes = [  ]
 16/z_index = 0
 17/name = "GrassDR"
-17/texture = ExtResource( 3 )
+17/texture = SubResource( 3 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 32, 32, 16, 16 )
@@ -250,7 +247,7 @@ extents = Vector2( 8, 8 )
 17/shapes = [  ]
 17/z_index = 0
 18/name = "WaterUL"
-18/texture = ExtResource( 4 )
+18/texture = SubResource( 4 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 0, 0, 16, 16 )
@@ -260,7 +257,7 @@ extents = Vector2( 8, 8 )
 18/shapes = [  ]
 18/z_index = 0
 19/name = "WaterU"
-19/texture = ExtResource( 4 )
+19/texture = SubResource( 4 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 16, 0, 16, 16 )
@@ -270,7 +267,7 @@ extents = Vector2( 8, 8 )
 19/shapes = [  ]
 19/z_index = 0
 20/name = "WaterUR"
-20/texture = ExtResource( 4 )
+20/texture = SubResource( 4 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 32, 0, 16, 16 )
@@ -280,7 +277,7 @@ extents = Vector2( 8, 8 )
 20/shapes = [  ]
 20/z_index = 0
 21/name = "WaterML"
-21/texture = ExtResource( 4 )
+21/texture = SubResource( 4 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 16, 16, 16 )
@@ -290,7 +287,7 @@ extents = Vector2( 8, 8 )
 21/shapes = [  ]
 21/z_index = 0
 22/name = "WaterM"
-22/texture = ExtResource( 4 )
+22/texture = SubResource( 4 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 16, 16, 16, 16 )
@@ -300,7 +297,7 @@ extents = Vector2( 8, 8 )
 22/shapes = [  ]
 22/z_index = 0
 23/name = "WaterMR"
-23/texture = ExtResource( 4 )
+23/texture = SubResource( 4 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 32, 16, 16, 16 )
@@ -310,7 +307,7 @@ extents = Vector2( 8, 8 )
 23/shapes = [  ]
 23/z_index = 0
 24/name = "WaterDL"
-24/texture = ExtResource( 4 )
+24/texture = SubResource( 4 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 0, 32, 16, 16 )
@@ -320,7 +317,7 @@ extents = Vector2( 8, 8 )
 24/shapes = [  ]
 24/z_index = 0
 25/name = "WaterDR"
-25/texture = ExtResource( 4 )
+25/texture = SubResource( 4 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 32, 32, 16, 16 )
@@ -330,7 +327,7 @@ extents = Vector2( 8, 8 )
 25/shapes = [  ]
 25/z_index = 0
 26/name = "WaterD"
-26/texture = ExtResource( 4 )
+26/texture = SubResource( 4 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 16, 32, 16, 16 )
@@ -340,7 +337,7 @@ extents = Vector2( 8, 8 )
 26/shapes = [  ]
 26/z_index = 0
 27/name = "RockyUL"
-27/texture = ExtResource( 6 )
+27/texture = SubResource( 5 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 0, 0, 16, 16 )
@@ -350,7 +347,7 @@ extents = Vector2( 8, 8 )
 27/shapes = [  ]
 27/z_index = 0
 28/name = "RockyU"
-28/texture = ExtResource( 6 )
+28/texture = SubResource( 5 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 16, 0, 16, 16 )
@@ -360,7 +357,7 @@ extents = Vector2( 8, 8 )
 28/shapes = [  ]
 28/z_index = 0
 29/name = "RockyUR"
-29/texture = ExtResource( 6 )
+29/texture = SubResource( 5 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 32, 0, 16, 16 )
@@ -370,7 +367,7 @@ extents = Vector2( 8, 8 )
 29/shapes = [  ]
 29/z_index = 0
 30/name = "RockyML"
-30/texture = ExtResource( 6 )
+30/texture = SubResource( 5 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 0, 16, 16, 16 )
@@ -380,7 +377,7 @@ extents = Vector2( 8, 8 )
 30/shapes = [  ]
 30/z_index = 0
 31/name = "RockyM"
-31/texture = ExtResource( 6 )
+31/texture = SubResource( 5 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 16, 16, 16, 16 )
@@ -390,7 +387,7 @@ extents = Vector2( 8, 8 )
 31/shapes = [  ]
 31/z_index = 0
 32/name = "RockyMR"
-32/texture = ExtResource( 6 )
+32/texture = SubResource( 5 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 32, 16, 16, 16 )
@@ -400,7 +397,7 @@ extents = Vector2( 8, 8 )
 32/shapes = [  ]
 32/z_index = 0
 33/name = "RockyDL"
-33/texture = ExtResource( 6 )
+33/texture = SubResource( 5 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 0, 32, 16, 16 )
@@ -410,7 +407,7 @@ extents = Vector2( 8, 8 )
 33/shapes = [  ]
 33/z_index = 0
 34/name = "RockyD"
-34/texture = ExtResource( 6 )
+34/texture = SubResource( 5 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 16, 32, 16, 16 )
@@ -420,7 +417,7 @@ extents = Vector2( 8, 8 )
 34/shapes = [  ]
 34/z_index = 0
 35/name = "RockyDR"
-35/texture = ExtResource( 6 )
+35/texture = SubResource( 5 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 32, 32, 16, 16 )
@@ -430,7 +427,7 @@ extents = Vector2( 8, 8 )
 35/shapes = [  ]
 35/z_index = 0
 36/name = "WetUL"
-36/texture = ExtResource( 8 )
+36/texture = SubResource( 6 )
 36/tex_offset = Vector2( 0, 0 )
 36/modulate = Color( 1, 1, 1, 1 )
 36/region = Rect2( 0, 0, 16, 16 )
@@ -440,7 +437,7 @@ extents = Vector2( 8, 8 )
 36/shapes = [  ]
 36/z_index = 0
 37/name = "WetU"
-37/texture = ExtResource( 8 )
+37/texture = SubResource( 6 )
 37/tex_offset = Vector2( 0, 0 )
 37/modulate = Color( 1, 1, 1, 1 )
 37/region = Rect2( 16, 0, 16, 16 )
@@ -450,7 +447,7 @@ extents = Vector2( 8, 8 )
 37/shapes = [  ]
 37/z_index = 0
 38/name = "WetUR"
-38/texture = ExtResource( 8 )
+38/texture = SubResource( 6 )
 38/tex_offset = Vector2( 0, 0 )
 38/modulate = Color( 1, 1, 1, 1 )
 38/region = Rect2( 32, 0, 16, 16 )
@@ -460,7 +457,7 @@ extents = Vector2( 8, 8 )
 38/shapes = [  ]
 38/z_index = 0
 39/name = "WetML"
-39/texture = ExtResource( 8 )
+39/texture = SubResource( 6 )
 39/tex_offset = Vector2( 0, 0 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 0, 16, 16, 16 )
@@ -470,7 +467,7 @@ extents = Vector2( 8, 8 )
 39/shapes = [  ]
 39/z_index = 0
 40/name = "WetM"
-40/texture = ExtResource( 8 )
+40/texture = SubResource( 6 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 16, 16, 16, 16 )
@@ -480,7 +477,7 @@ extents = Vector2( 8, 8 )
 40/shapes = [  ]
 40/z_index = 0
 41/name = "WetMR"
-41/texture = ExtResource( 8 )
+41/texture = SubResource( 6 )
 41/tex_offset = Vector2( 0, 0 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 32, 16, 16, 16 )
@@ -490,7 +487,7 @@ extents = Vector2( 8, 8 )
 41/shapes = [  ]
 41/z_index = 0
 42/name = "WetDL"
-42/texture = ExtResource( 8 )
+42/texture = SubResource( 6 )
 42/tex_offset = Vector2( 0, 0 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 0, 32, 16, 16 )
@@ -500,7 +497,7 @@ extents = Vector2( 8, 8 )
 42/shapes = [  ]
 42/z_index = 0
 43/name = "WetDR"
-43/texture = ExtResource( 8 )
+43/texture = SubResource( 6 )
 43/tex_offset = Vector2( 0, 0 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 32, 32, 16, 16 )
@@ -510,7 +507,7 @@ extents = Vector2( 8, 8 )
 43/shapes = [  ]
 43/z_index = 0
 44/name = "WetD"
-44/texture = ExtResource( 8 )
+44/texture = SubResource( 6 )
 44/tex_offset = Vector2( 0, 0 )
 44/modulate = Color( 1, 1, 1, 1 )
 44/region = Rect2( 16, 32, 16, 16 )
@@ -520,7 +517,7 @@ extents = Vector2( 8, 8 )
 44/shapes = [  ]
 44/z_index = 0
 45/name = "ExtraUL"
-45/texture = ExtResource( 10 )
+45/texture = SubResource( 7 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 0, 16, 16 )
@@ -530,7 +527,7 @@ extents = Vector2( 8, 8 )
 45/shapes = [  ]
 45/z_index = 0
 46/name = "ExtraU"
-46/texture = ExtResource( 10 )
+46/texture = SubResource( 7 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 16, 0, 16, 16 )
@@ -540,7 +537,7 @@ extents = Vector2( 8, 8 )
 46/shapes = [  ]
 46/z_index = 0
 47/name = "ExtraUR"
-47/texture = ExtResource( 10 )
+47/texture = SubResource( 7 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 32, 0, 16, 16 )
@@ -550,7 +547,7 @@ extents = Vector2( 8, 8 )
 47/shapes = [  ]
 47/z_index = 0
 48/name = "ExtraML"
-48/texture = ExtResource( 10 )
+48/texture = SubResource( 7 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 0, 16, 16, 16 )
@@ -560,7 +557,7 @@ extents = Vector2( 8, 8 )
 48/shapes = [  ]
 48/z_index = 0
 49/name = "ExtraM"
-49/texture = ExtResource( 10 )
+49/texture = SubResource( 7 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 16, 16, 16, 16 )
@@ -570,7 +567,7 @@ extents = Vector2( 8, 8 )
 49/shapes = [  ]
 49/z_index = 0
 50/name = "ExtraMR"
-50/texture = ExtResource( 10 )
+50/texture = SubResource( 7 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 32, 16, 16, 16 )
@@ -580,7 +577,7 @@ extents = Vector2( 8, 8 )
 50/shapes = [  ]
 50/z_index = 0
 51/name = "ExtraDL"
-51/texture = ExtResource( 10 )
+51/texture = SubResource( 7 )
 51/tex_offset = Vector2( 0, 0 )
 51/modulate = Color( 1, 1, 1, 1 )
 51/region = Rect2( 0, 32, 16, 16 )
@@ -590,7 +587,7 @@ extents = Vector2( 8, 8 )
 51/shapes = [  ]
 51/z_index = 0
 52/name = "ExtraD"
-52/texture = ExtResource( 10 )
+52/texture = SubResource( 7 )
 52/tex_offset = Vector2( 0, 0 )
 52/modulate = Color( 1, 1, 1, 1 )
 52/region = Rect2( 16, 32, 16, 16 )
@@ -600,7 +597,7 @@ extents = Vector2( 8, 8 )
 52/shapes = [  ]
 52/z_index = 0
 53/name = "ExtraDR"
-53/texture = ExtResource( 10 )
+53/texture = SubResource( 7 )
 53/tex_offset = Vector2( 0, 0 )
 53/modulate = Color( 1, 1, 1, 1 )
 53/region = Rect2( 32, 32, 16, 16 )
@@ -610,7 +607,7 @@ extents = Vector2( 8, 8 )
 53/shapes = [  ]
 53/z_index = 0
 54/name = "WoodWallBackSide2"
-54/texture = ExtResource( 12 )
+54/texture = ExtResource( 5 )
 54/tex_offset = Vector2( 0, -32 )
 54/modulate = Color( 1, 1, 1, 1 )
 54/region = Rect2( 0, 0, 16, 48 )
@@ -626,7 +623,7 @@ extents = Vector2( 8, 8 )
 } ]
 54/z_index = 0
 55/name = "WoodCeiling"
-55/texture = ExtResource( 13 )
+55/texture = ExtResource( 6 )
 55/tex_offset = Vector2( 0, -32 )
 55/modulate = Color( 1, 1, 1, 1 )
 55/region = Rect2( 0, 0, 16, 48 )
