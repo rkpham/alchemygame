@@ -1,5 +1,6 @@
 extends Node2D
 
+<<<<<<< HEAD
 class Room:
 	var pos = Vector2()
 
@@ -38,3 +39,16 @@ func _ready():
 
 func _on_Player_new_map_signal(map_position):
 	current_map_position = map_position
+=======
+var enemies = []
+
+var rooms = {
+	"grass1": "res://Rooms/Grass1.tscn"
+}
+
+func change_map(map_name):
+	pass
+
+func _ready():
+	pass # Replace with function body.
+>>>>>>> 4e9d3bfc3d3fc912f8366444fe3c40f0ca2d7c0b
