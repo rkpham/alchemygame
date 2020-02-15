@@ -15,5 +15,5 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="Bar" type="TextureProgress" parent="Health"]
-margin_right = 620.0
+margin_right = 663.0
 margin_bottom = 20.0

@@ -1,13 +1,40 @@
-extends TileMap
+extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+class Room:
+	var pos = Vector2()
 
-# Called when the node enters the scene tree for the first time.
+var rooms = {}
+
+var maps = {
+	"grass1":"res://Rooms/Grass1.tscn",
+	"grass2":"res://Rooms/Grass2.tscn"	
+}
+
+var grass_enemies = {
+	
+}
+
+var item = "res://Objects/Main/Item.tscn"
+
+var current_map_position = Vector2()
+
+func rand(mn, mx):
+	return round((randf()*(mx-mn))+mn)
+
+func spawn_item(id):
+	var new_item = load(item).instance()
+	self.add_child(new_item)
+
+func spawn_enemy(enemy_name, position):
+	var new_enemy = load(grass_enemies[enemy_name]).instance()
+	self.add_child(new_enemy)
+	if position:
+		new_enemy.global_position = position
+	else:
+		new_enemy.global_position = Vector2(rand(0, 1334), rand(0, 736))
+
 func _ready():
-	pass # Replace with function body.
+	randomize()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Player_new_map_signal(map_position):
+	current_map_position = map_position

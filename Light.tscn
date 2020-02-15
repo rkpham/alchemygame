@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sprites/FxSprites/light.png" type="Texture" id=1]
+
+[node name="Light2D" type="Light2D"]
+position = Vector2( 134.244, 88.9594 )
+scale = Vector2( 0.195572, 0.188301 )
+texture = ExtResource( 1 )
+shadow_enabled = true

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 #Custom signals
 signal health_changed
+signal new_map_signal
 
 var ASP
 var GUI
@@ -22,6 +23,9 @@ var nearbyareas = []
 var walk_cycle = 0
 var walk_rate = 10
 var walk_bounce = true
+onready var camera = $Camera2D
+
+var current_map_position = Vector2()
 
 #Controls variables
 var velocity = Vector2()
@@ -42,6 +46,9 @@ var player_turn = 2
 var fire_cycle = 0
 var fire_rate = 0.1
 var firing = false
+
+func go_room(pos, direction):
+	emit_signal("go_room", pos, direction)
 
 #Hurt function
 func hurt(x):
@@ -84,6 +91,8 @@ func _ready():
 func _process(delta):
 	get_input()
 	player_turn = direct8(facing)
+	
+	current_map_position = (global_position/Vector2(683, 384)).floor()
 	
 	#Walking animation
 	if (w || a || s || d):
