@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tentacle.png-8f10ddab9029e1b8d51815257972bd5c.stex"
+path="res://.import/items.png-036d894ac7ffbe17de7a94e7f5e2d388.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/ItemSprites/tentacle.png"
-dest_files=[ "res://.import/tentacle.png-8f10ddab9029e1b8d51815257972bd5c.stex" ]
+source_file="res://Assets/Sprites/ItemSprites/items.png"
+dest_files=[ "res://.import/items.png-036d894ac7ffbe17de7a94e7f5e2d388.stex" ]
 
 [params]
 

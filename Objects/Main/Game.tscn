@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Main/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rooms/StartingRoom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Actors/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://Objects/Main/Item.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AudioStreamGenerator" id=1]
 
@@ -31,6 +32,9 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 script = ExtResource( 5 )
+
+[node name="Item" parent="Map" instance=ExtResource( 6 )]
+position = Vector2( 80, 80 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )

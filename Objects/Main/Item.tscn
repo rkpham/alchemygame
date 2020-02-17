@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Shaders/outline.shader" type="Shader" id=1]
-[ext_resource path="res://Assets/Sprites/ItemSprites/tentacle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/ItemSprites/items.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Item.gd" type="Script" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
-shader_param/outLineSize = 0.0
+shader_param/outLineSize = 0.005
 shader_param/outLineColor = Plane( 1, 1, 1, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -16,6 +16,8 @@ extents = Vector2( 15, 15 )
 material = SubResource( 1 )
 z_index = 800
 texture = ExtResource( 2 )
+vframes = 5
+hframes = 5
 script = ExtResource( 3 )
 
 [node name="ItemBound" type="Area2D" parent="."]
