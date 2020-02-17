@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Main/GUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Rooms/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Rooms/StartingRoom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Actors/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=5]
-[ext_resource path="res://Light.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AudioStreamGenerator" id=1]
 
@@ -15,10 +14,11 @@ script = ExtResource( 1 )
 [node name="GUI" parent="." instance=ExtResource( 2 )]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
-position = Vector2( 16, 48 )
+position = Vector2( 0, 32 )
 
 [node name="Player" parent="Map" instance=ExtResource( 4 )]
-position = Vector2( 128, 64 )
+position = Vector2( 128, 96 )
+z_as_relative = false
 speed = 100
 
 [node name="Camera2D" type="Camera2D" parent="Map/Player"]
@@ -32,16 +32,9 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 script = ExtResource( 5 )
 
-[node name="Light2D" parent="Map/Player" instance=ExtResource( 6 )]
-position = Vector2( 0, 18 )
-
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )
 volume_db = -18.175
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.141176, 0.141176, 0.141176, 1 )
 [connection signal="health_changed" from="Map/Player" to="GUI" method="_on_Player_health_changed"]
-[connection signal="new_map_signal" from="Map/Player" to="Map" method="_on_Player_new_map_signal"]
 
 [editable path="GUI"]

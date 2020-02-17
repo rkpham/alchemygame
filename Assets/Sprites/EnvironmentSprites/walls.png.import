@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/emptytile.png-f83c4872216495312739018a1c555bcf.stex"
+path="res://.import/walls.png-d8c0d6b75b79d475ec85fcdb7273a17d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/EnvironmentSprites/emptytile.png"
-dest_files=[ "res://.import/emptytile.png-f83c4872216495312739018a1c555bcf.stex" ]
+source_file="res://Assets/Sprites/EnvironmentSprites/walls.png"
+dest_files=[ "res://.import/walls.png-d8c0d6b75b79d475ec85fcdb7273a17d.stex" ]
 
 [params]
 
