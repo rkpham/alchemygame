@@ -8,8 +8,6 @@
 radius = 6.30987
 
 [node name="PotionProjectile" type="Sprite"]
-z_index = 1000
-z_as_relative = false
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 speed = 250

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerm.png-7888b0f9fce25d4260f8d262eea56676.stex"
+path="res://.import/doordirt.png-d4a8f7ea1e93218c2ac3c1c2a602889d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/ActorSprites/playerm.png"
-dest_files=[ "res://.import/playerm.png-7888b0f9fce25d4260f8d262eea56676.stex" ]
+source_file="res://Assets/Sprites/EnvironmentSprites/doordirt.png"
+dest_files=[ "res://.import/doordirt.png-d4a8f7ea1e93218c2ac3c1c2a602889d.stex" ]
 
 [params]
 

@@ -1,8 +1,6 @@
 extends TileMap
 
-class Room:
-	var pos = Vector2()
-
+var fighting = false
 var rooms = {}
 
 var maps = {
