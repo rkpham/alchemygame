@@ -3,9 +3,6 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/ActorSprites/old/playerm.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.7213, 4 )
 
@@ -39,3 +36,4 @@ position = Vector2( 0, 18 )
 shape = SubResource( 3 )
 [connection signal="area_entered" from="ItemReach" to="." method="_on_ItemReach_area_entered"]
 [connection signal="area_exited" from="ItemReach" to="." method="_on_ItemReach_area_exited"]
+[connection signal="area_entered" from="PlayerHurt" to="." method="_on_PlayerHurt_area_entered"]

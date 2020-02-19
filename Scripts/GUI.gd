@@ -11,6 +11,5 @@ func _ready():
 func update_health(new_value):
 	$HealthContainer/Text
 
-
 func _on_Player_health_changed():
 	pass # Replace with function body.

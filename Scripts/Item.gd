@@ -9,7 +9,9 @@ var float_amp = 10
 
 func _ready():
 	self.frame = id
+
 func _process(delta):
+	self.frame = id
 	material.set_shader_param("outLineSize" , int(outline)*0.005)
 	float_cycle += delta * float_speed
 	float_cycle = fmod(float_cycle, float_cycle_end)

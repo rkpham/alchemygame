@@ -5,7 +5,7 @@ var velocity = Vector2()
 
 var global_target_position
 
-func move(delta):
+func move():
 	global_target_position = global_position + velocity
 	#self.look_at(global_target_position)
 	global_position = global_target_position
@@ -17,7 +17,7 @@ func _ready():
 func _physics_process(delta):
 	velocity = velocity.normalized() * speed * delta
 	speed *= 0.9
-	move(delta)
+	move()
 
 func _on_Timer_timeout():
 	queue_free()

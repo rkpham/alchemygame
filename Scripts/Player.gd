@@ -47,9 +47,6 @@ var fire_cycle = 0
 var fire_rate = 0.1
 var firing = false
 
-func go_room(pos, direction):
-	emit_signal("go_room", pos, direction)
-
 #Hurt function
 func hurt(x):
 	health -= x
@@ -164,3 +161,6 @@ func _on_ItemReach_area_exited(area):
 		if nearbyareas.find(area) != -1:
 			nearbyareas.remove(nearbyareas.find(area))
 		area.get_parent().outline = false
+
+func _on_PlayerHurt_area_entered(area):
+	pass # Replace with function body.
