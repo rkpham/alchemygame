@@ -9,6 +9,6 @@ func _ready():
 		var screen_size_set = Vector2(640, 360)
 		OS.set_window_size(screen_size_set)
 	elif int(fmod(screen_size.x, 683)) == 0:
-		print("Screen is 1366x768")
+		print("Screen is 1366x768 :(")
 		var screen_size_set = Vector2(683, 384)
 		OS.set_window_size(screen_size_set)

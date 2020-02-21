@@ -4,13 +4,11 @@ var maps = {
 	"grass0":"res://Rooms/Grass0.tscn",
 	"grass1":"res://Rooms/Grass1.tscn",
 	"grass2":"res://Rooms/Grass2.tscn",
-	"grass3":"res://Rooms/Grass3.tscn",
-	"grass4":"res://Rooms/Grass4.tscn",
-	"grass5":"res://Rooms/Grass5.tscn",
-	"grass6":"res://Rooms/Grass6.tscn",
-	"grass7":"res://Rooms/Grass7.tscn",
-	"grass8":"res://Rooms/Grass8.tscn"
+	"grass3":"res://Rooms/Grass3.tscn"
 }
+
+var completedrooms = []
+var enemies = []
 
 var rooms = [[0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0],
@@ -41,6 +39,7 @@ func spawn_item(position, id):
 func spawn_enemy(enemy_name, position):
 	var new_enemy = load(grass_enemies[enemy_name]).instance()
 	self.add_child(new_enemy)
+	enemies.append(new_enemy)
 	if position:
 		new_enemy.global_position = position
 	else:
@@ -48,6 +47,13 @@ func spawn_enemy(enemy_name, position):
 
 func _on_Player_new_map_signal(map_position):
 	current_map_position = map_position
+
+func open_doors():
+	pass
+
+func _process(delta):
+	if enemies.size() == 0:
+		open_doors()
 
 func load_map(position, id):
 	var loadedmap = load(maps["grass"+str(id)]).instance()
@@ -64,17 +70,17 @@ func load_map(position, id):
 			$Floor.set_cell(cellposition.x, cellposition.y, floorcell, false, false, false, floorcellautotile)
 			$FloorProps.set_cell(cellposition.x, cellposition.y, floorpropscell, false, false, false, floorpropscellautotile)
 			update_dirty_quadrants()
-#	for child in loadedmap.get_children():
-#		if "Door" in child.name:
-#			var newdoor = child.duplicate()
-#			self.add_child(newdoor)
-#			newdoor.global_position = newdoor.position+(position*Vector2(640, 368))+Vector2(0, 32)
+	for child in loadedmap.get_children():
+		if "Door" in child.name:
+			var newdoor = child.duplicate()
+			self.add_child(newdoor)
+			newdoor.global_position = newdoor.position+(position*Vector2(640, 368))+Vector2(0, 32)
 
 func _ready():
 	randomize()
 	for x in range(7):
 		for y in range(7):
-			rooms[x][y] = rand(1, 6)
+			rooms[x][y] = rand(1, 3)
 	rooms[0][0] = 0
 	for x in range(7):
 		for y in range(7):
