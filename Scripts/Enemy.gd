@@ -2,30 +2,52 @@ extends KinematicBody2D
 
 export (int) var speed = 20
 
-#Different enemy behaviors
-enum behaviors {
-	chase
-}
+signal health_changed
 
-var player
-var player_position
-var custom_enemy_behavior = []
-#Different enemy behaviors are (chase)
-var enemy_behavior = behaviors.chase
+onready var anim = $Sprite/AnimationPlayer
+var health = 10
+var maxhealth = 10
 
+var target
+var target_position
 var velocity = Vector2()
 
-#Get player info, play animation
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_node("/root/Game/TileMap/Player")
-	player_position = player.global_position
-	$Sprite/AnimationPlayer.play()
-
-#Enemy behavior
-func _process(delta):
-	player_position = player.global_position
-	if enemy_behavior == behaviors.chase:
-		velocity = (player_position-global_position).normalized()*speed
+	target = self.get_parent().get_node("Player")
+	target_position = target.global_position
 
 func _physics_process(delta):
+	target_position = target.global_position
+	velocity = (target_position-global_position).normalized()*speed
 	velocity = move_and_slide(velocity)
+	if vectortocardinal(velocity, 4) == 0:
+		anim.play("idleright")
+	elif vectortocardinal(velocity, 4) == 1:
+		anim.play("idleforward")
+	elif vectortocardinal(velocity, 4) == 2:
+		anim.play("idleleft")
+	elif vectortocardinal(velocity, 4) == 3:
+		anim.play("idleback")
+
+func _on_Area2D_area_entered(area):
+	pass
+
+func die():
+	queue_free()
+
+func hurt(x):
+	health -= x
+	$MarginContainer/TextureProgress.value = int((float(health)/maxhealth)*100)
+	emit_signal("health_changed", x)
+	if (health <= 0):
+		die()
+
+func respectfulplayanim(animationname):
+	if !anim.is_playing():
+		anim.play(animationname)
+
+func vectortocardinal(vector, sectornum):
+	var angle = atan2(vector.y, vector.x)
+	var anglesector = int(round((sectornum*(angle/(2*PI)))+sectornum))%sectornum
+	return anglesector

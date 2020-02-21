@@ -9,7 +9,7 @@ func _ready():
 	pass # Replace with function body.
 
 func update_health(new_value):
-	$HealthContainer/Text
+	$Health/Bar.value = new_value
 
-func _on_Player_health_changed():
-	pass # Replace with function body.
+func _on_Player_health_changed(new_health):
+	update_health(new_health)

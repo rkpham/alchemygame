@@ -2,7 +2,7 @@
 
 extends Camera2D
 
-var player
+onready var player = get_node("/root/Game/Map/Player")
 
 var _duration = 0.0
 var _period_in_ms = 0.0
@@ -13,12 +13,9 @@ var _previous_x = 0.0
 var _previous_y = 0.0
 var _last_offset = Vector2(0, 0)
 
-func _ready():
-	player = get_parent()
-	set_process(true)
-
 # Shake with decreasing intensity while there's time remaining.
 func _process(delta):
+	global_position = player.current_map_position*Vector2(640, 368)+Vector2(320, 184)
 	if _timer == 0:
 		return
 	_last_shook_timer = _last_shook_timer + delta

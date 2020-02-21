@@ -3,7 +3,8 @@ extends Sprite
 const GLASS_PARTICLE = preload("res://Objects/Projectiles/GlassProjectile.tscn")
 export (int) var speed = 150
 var velocity = Vector2()
-var height = 8
+
+var damage = 3
 
 var global_target_position
 
@@ -12,12 +13,7 @@ func move(delta):
 	#self.look_at(global_target_position)
 	global_position = global_target_position
 
-func _ready():
-	offset = Vector2(0, -height)
-
 func _physics_process(delta):
-	offset = Vector2(0, -height)
-	height -= 0.1
 	velocity = velocity.normalized() * speed * delta
 	move(delta)
 
@@ -38,4 +34,7 @@ func _on_Timer_timeout():
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Map":
+		splash()
+	if body.name == "Enemy":
+		body.hurt(damage)
 		splash()

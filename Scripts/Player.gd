@@ -4,15 +4,16 @@ extends KinematicBody2D
 signal health_changed
 signal new_map_signal
 
-var ASP
-var GUI
+onready var camera = get_node("/root/Game/Camera2D")
+onready var ASP = get_node("/root/Game/Audio")
+onready var GUI = get_node("/root/Game/GUI")
 const ITEM_GET = preload("res://Assets/Audio/SFX/ItemGet.wav")
 const BULLET = preload("res://Objects/Projectiles/PotionProjectile.tscn")
 export (int) var speed = 200
 
 #Stats
 var health = 100
-var damage = 15
+var damage = 3
 
 #Items
 var items = []
@@ -23,7 +24,6 @@ var nearbyareas = []
 var walk_cycle = 0
 var walk_rate = 10
 var walk_bounce = true
-onready var camera = $Camera2D
 
 var current_map_position = Vector2()
 
@@ -44,21 +44,31 @@ var vertical = 0
 var player_turn = 2
 
 var fire_cycle = 0
-var fire_rate = 0.1
+var fire_rate = 1
 var firing = false
 
 #Hurt function
 func hurt(x):
 	health -= x
-	$Camera2D.shake(0.25, 100, 5)
+	camera.shake(0.25, 50, 3)
 	emit_signal("health_changed", health)
+	pause(0.04)
+
+#Freeze game for a time
+func pause(length):
+	get_tree().paused = true
+	$Pause.start(length)
+
+func _on_Pause_timeout():
+	get_tree().paused = false
 
 #Function for firing a bullet
 func fire():
 	var n_bullet = BULLET.instance()
 	get_parent().add_child(n_bullet)
-	n_bullet.global_position = global_position + Vector2(0, 16)
-	n_bullet.velocity = facing + velocity/300
+	n_bullet.global_position = global_position
+	n_bullet.velocity = facing
+	n_bullet.damage = damage
 
 #function to turn vector of facing into 8 directions, for sprite
 func direct8(direction):
@@ -79,17 +89,13 @@ func get_input():
 	vertical = int(s)-int(w)
 	velocity = Vector2(horizontal, vertical).normalized() * speed
 	#Facing towards mouse
-	facing = (get_global_mouse_position()-global_position).normalized()
-
-func _ready():
-	GUI = get_node("/root/Game/GUI")
-	ASP = get_node("/root/Game/Audio")
+	facing = ((get_global_mouse_position())-global_position).normalized()
 
 func _process(delta):
 	get_input()
 	player_turn = direct8(facing)
 	
-	current_map_position = (global_position/Vector2(683, 384)).floor()
+	current_map_position = (global_position/Vector2(640, 368)).floor()
 	
 	#Walking animation
 	if (w || a || s || d):
@@ -119,13 +125,12 @@ func _process(delta):
 		firing = true
 	else:
 		firing = false
+	if (fire_cycle < fire_rate):
+		fire_cycle += delta
 	if (firing):
-		if (fire_cycle > fire_rate):
+		if (fire_cycle >= fire_rate):
 			fire_cycle = 0
 			fire()
-		fire_cycle += delta
-	else:
-		fire_cycle = 0
 	
 	#Turns the player towards the mouse
 	if (player_turn == 0):
@@ -163,4 +168,5 @@ func _on_ItemReach_area_exited(area):
 		area.get_parent().outline = false
 
 func _on_PlayerHurt_area_entered(area):
-	pass # Replace with function body.
+	if area.name == "Enemy":
+		hurt(3)
