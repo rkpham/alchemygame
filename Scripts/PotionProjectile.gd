@@ -1,6 +1,6 @@
 extends Sprite
 
-const GLASS_PARTICLE = preload("res://Objects/Projectiles/GlassProjectile.tscn")
+const GLASS_PARTICLE = preload("res://Objects/Projectiles/Glass.tscn")
 export (int) var speed = 150
 var velocity = Vector2()
 
@@ -22,7 +22,6 @@ func splash():
 	for i in range(5):
 		var n_glass = GLASS_PARTICLE.instance()
 		get_parent().add_child(n_glass)
-		n_glass.frame = randi()%4
 		n_glass.global_position = global_position
 		var randomx = randi()%300-150
 		var randomy = randi()%300-150
@@ -35,6 +34,6 @@ func _on_Timer_timeout():
 func _on_Area2D_body_entered(body):
 	if body.name == "Map":
 		splash()
-	if body.name == "Enemy":
+	if "Enemy" in body.name:
 		body.hurt(damage)
 		splash()

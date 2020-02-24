@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Shatter.wav-53033157036d28087c11cae1b40df90a.sample"
+path="res://.import/boing2.wav-10420e0fb86b869edc22457eba562b88.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/SFX/Shatter.wav"
-dest_files=[ "res://.import/Shatter.wav-53033157036d28087c11cae1b40df90a.sample" ]
+source_file="res://Assets/Audio/SFX/boing2.wav"
+dest_files=[ "res://.import/boing2.wav-10420e0fb86b869edc22457eba562b88.sample" ]
 
 [params]
 

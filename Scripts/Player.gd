@@ -3,35 +3,41 @@ extends KinematicBody2D
 #Custom signals
 signal health_changed
 signal new_map_signal
+signal grabbed_item
 
 onready var camera = get_node("/root/Game/Camera2D")
 onready var ASP = get_node("/root/Game/Audio")
 onready var GUI = get_node("/root/Game/GUI")
 const ITEM_GET = preload("res://Assets/Audio/SFX/ItemGet.wav")
-const BULLET = preload("res://Objects/Projectiles/PotionProjectile.tscn")
+const BULLET = preload("res://Objects/Projectiles/Bullet.tscn")
+const SMOKE_PARTICLE = preload("res://Objects/Projectiles/Smoke.tscn")
 export (int) var speed = 200
 
 #Stats
 var health = 100
 var damage = 3
+var invulnerable = false
 
 #Items
 var items = []
 
 #Misc variables
 var nearbyareas = []
+var nearbyhurtareas = []
 
 var walk_cycle = 0
-var walk_rate = 10
+var walk_rate = 5
 var walk_bounce = true
 
-var current_map_position = Vector2()
+var current_map_position = Vector2(0, 0)
+var last_map_position = Vector2(0, 0)
 
 #Controls variables
 var velocity = Vector2()
 var facing = Vector2()
 
 var clicking = false
+var clicking2 = false
 
 var e = false
 var w = false
@@ -43,16 +49,20 @@ var horizontal = 0
 var vertical = 0
 var player_turn = 2
 
-var fire_cycle = 0
-var fire_rate = 1
+var fire_cycle = 1
+var fire_rate = 0.1
 var firing = false
 
 #Hurt function
 func hurt(x):
-	health -= x
-	camera.shake(0.25, 50, 3)
-	emit_signal("health_changed", health)
-	pause(0.04)
+	if not invulnerable:
+		health -= x
+		camera.shake(0.25, 20, 3)
+		emit_signal("health_changed", health)
+		invulnerable = true
+		$Sprite.material.set_shader_param("scale", 1)
+		$InvulnerableFrames.start(0.4)
+		pause(0.05)
 
 #Freeze game for a time
 func pause(length):
@@ -85,6 +95,7 @@ func get_input():
 	s = Input.is_action_pressed('down')
 	d = Input.is_action_pressed('right')
 	clicking = Input.is_action_pressed('fire')
+	clicking2 = Input.is_action_pressed('fire2')
 	horizontal = int(d)-int(a)
 	vertical = int(s)-int(w)
 	velocity = Vector2(horizontal, vertical).normalized() * speed
@@ -95,14 +106,24 @@ func _process(delta):
 	get_input()
 	player_turn = direct8(facing)
 	
+	last_map_position = current_map_position
 	current_map_position = (global_position/Vector2(640, 368)).floor()
+	
+	if last_map_position != current_map_position:
+		emit_signal("new_map_signal", current_map_position)
 	
 	#Walking animation
 	if (w || a || s || d):
-		walk_cycle += delta*20
-		if walk_cycle > walk_rate:
-			walk_cycle = 0
-		walk_bounce = walk_cycle > (walk_rate/2)
+		walk_cycle += 0.1
+		walk_cycle = fmod(walk_cycle,walk_rate)
+		walk_bounce = walk_cycle<(walk_rate/2)
+		if walk_cycle <= 0.2:
+			var n_smoke = SMOKE_PARTICLE.instance()
+			n_smoke.smoke = true
+			n_smoke.z_index = -1
+			get_parent().add_child(n_smoke)
+			n_smoke.global_position = global_position+Vector2(randi()%8-4,randi()%8-4)
+			n_smoke.velocity = Vector2(0, 0)
 	else:
 		walk_cycle = 0
 	
@@ -119,6 +140,11 @@ func _process(delta):
 					ASP.stream = ITEM_GET
 					ASP.play()
 					print("Added item " + str(id))
+					emit_signal("grabbed_item", id)
+	#Hurting
+	for area in nearbyhurtareas:
+		if "Enemy" in area.name:
+			hurt(3)
 	
 	#Shooting
 	if (clicking):
@@ -169,4 +195,13 @@ func _on_ItemReach_area_exited(area):
 
 func _on_PlayerHurt_area_entered(area):
 	if area.name == "Enemy":
-		hurt(3)
+		hurt(area.get_parent().get_parent().damage)
+	nearbyhurtareas.append(area)
+
+func _on_PlayerHurt_area_exited(area):
+	if area in nearbyhurtareas:
+		nearbyhurtareas.remove(nearbyhurtareas.find(area))
+
+func _on_InvulnerableFrames_timeout():
+	invulnerable = false
+	$Sprite.material.set_shader_param("scale", 0)

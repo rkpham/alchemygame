@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/ActorSprites/old/playerm.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/recolor.shader" type="Shader" id=2]
+[ext_resource path="res://Assets/Sprites/ActorSprites/old/playerm.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.7213, 4 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 2 )
+shader_param/scale = 0.0
+shader_param/recolor = Plane( 1, 1, 1, 1 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 27.6413
@@ -22,8 +28,9 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
+material = SubResource( 4 )
 position = Vector2( 0, -17 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 vframes = 2
 hframes = 8
 
@@ -44,7 +51,11 @@ shape = SubResource( 3 )
 [node name="Pause" type="Timer" parent="."]
 pause_mode = 2
 wait_time = 0.01
+
+[node name="InvulnerableFrames" type="Timer" parent="."]
 [connection signal="area_entered" from="ItemReach" to="." method="_on_ItemReach_area_entered"]
 [connection signal="area_exited" from="ItemReach" to="." method="_on_ItemReach_area_exited"]
 [connection signal="area_entered" from="PlayerHurt" to="." method="_on_PlayerHurt_area_entered"]
+[connection signal="area_exited" from="PlayerHurt" to="." method="_on_PlayerHurt_area_exited"]
 [connection signal="timeout" from="Pause" to="." method="_on_Pause_timeout"]
+[connection signal="timeout" from="InvulnerableFrames" to="." method="_on_InvulnerableFrames_timeout"]

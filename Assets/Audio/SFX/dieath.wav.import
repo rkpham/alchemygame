@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dieath.wav-d85dd0230f3ee45ec6af1b8079024aa5.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/dieath.wav"
+dest_files=[ "res://.import/dieath.wav-d85dd0230f3ee45ec6af1b8079024aa5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
