@@ -30,10 +30,12 @@ func _ready():
 		health = 6
 		maxhealth = 6
 		speed = 20
+		damage = 5
 	if self.has_node("EliteSlime"):
 		enemy_type = "EliteSlime"
 		health = 15
 		maxhealth = 15
+		damage = 20
 		speed = 20
 	if self.has_node("MushroomSpear"):
 		enemy_type = "MushroomSpear"
@@ -43,8 +45,9 @@ func _ready():
 	if self.has_node("Frog"):
 		enemy_type = "Frog"
 		behavior = "charging"
-		health = 25
+		health = 15 
 		maxhealth = 15
+		damage = 15
 		speed = 0
 
 func _physics_process(delta):
@@ -129,16 +132,12 @@ func _physics_process(delta):
 			var currentframe = anim.current_animation_position
 			if vectortocardinal(velocity, 4) == 0:
 				anim.play("jumpright")
-				anim.seek(currentframe)
 			elif vectortocardinal(velocity, 4) == 1:
 				anim.play("jumpforward")
-				anim.seek(currentframe)
 			elif vectortocardinal(velocity, 4) == 2:
 				anim.play("jumpleft")
-				anim.seek(currentframe)
 			elif vectortocardinal(velocity, 4) == 3:
 				anim.play("jumpback")
-				anim.seek(currentframe)
 
 func _on_Area2D_area_entered(area):
 	if area.name == "PlayerHurt":

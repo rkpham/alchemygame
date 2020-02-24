@@ -549,7 +549,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 3 )
 vframes = 14
 hframes = 4
-frame = 43
+frame = 3
 
 [node name="Enemy" type="Area2D" parent="Sprite"]
 

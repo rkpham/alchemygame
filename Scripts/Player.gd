@@ -33,6 +33,8 @@ var current_map_position = Vector2(0, 0)
 var last_map_position = Vector2(0, 0)
 
 #Controls variables
+var allowedtomove = true
+
 var velocity = Vector2()
 var facing = Vector2()
 
@@ -72,6 +74,12 @@ func pause(length):
 func _on_Pause_timeout():
 	get_tree().paused = false
 
+func die():
+	camera.pause_mode = Node.PAUSE_MODE_PROCESS
+	camera.shake(0.5, 10, 8)
+	pause(5)
+	$Death.start(3)
+
 #Function for firing a bullet
 func fire():
 	var n_bullet = BULLET.instance()
@@ -103,6 +111,9 @@ func get_input():
 	facing = ((get_global_mouse_position())-global_position).normalized()
 
 func _process(delta):
+	if health <= 0:
+		die()
+	
 	get_input()
 	player_turn = direct8(facing)
 	
@@ -141,6 +152,55 @@ func _process(delta):
 					ASP.play()
 					print("Added item " + str(id))
 					emit_signal("grabbed_item", id)
+					match id:
+						1:
+							fire_rate*=0.75
+						2:
+							fire_rate*=0.5
+						3:
+							damage+=3
+						4:
+							damage+=5
+						5:
+							fire_rate*=0.75
+						6:
+							fire_rate*=0.5
+						7:
+							damage+=3
+						8:
+							damage+=5
+						9:
+							fire_rate*=0.75
+						10:
+							fire_rate*=0.5
+						11:
+							damage+=3
+						12:
+							damage+=5
+						13:
+							fire_rate*=0.75
+						14:
+							fire_rate*=0.5
+						15:
+							damage+=3
+						16:
+							damage+=5
+						17:
+							fire_rate*=0.75
+						18:
+							fire_rate*=0.5
+						19:
+							damage+=3
+						20:
+							damage+=5
+						21:
+							fire_rate*=0.75
+						22:
+							fire_rate*=0.5
+						23:
+							damage+=3
+						24:
+							damage+=5
 	#Hurting
 	for area in nearbyhurtareas:
 		if "Enemy" in area.name:
@@ -178,7 +238,8 @@ func _process(delta):
 
 #Move the player
 func _physics_process(delta):
-	velocity = move_and_slide(velocity)
+	if allowedtomove:
+		velocity = move_and_slide(velocity)
 
 #Checking for items in reach of the player
 func _on_ItemReach_area_entered(area):
@@ -205,3 +266,6 @@ func _on_PlayerHurt_area_exited(area):
 func _on_InvulnerableFrames_timeout():
 	invulnerable = false
 	$Sprite.material.set_shader_param("scale", 0)
+
+func _on_Death_timeout():
+	get_tree().quit()

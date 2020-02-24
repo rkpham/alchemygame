@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=640
-window/size/height=360
+window/size/height=368
 window/size/resizable=false
 window/size/fullscreen=true
 mouse_cursor/custom_image="res://Assets/Sprites/GUISprites/crosshair.png"

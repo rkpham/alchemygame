@@ -7,15 +7,15 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.7213, 4 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
 shader_param/scale = 0.0
 shader_param/recolor = Plane( 1, 1, 1, 1 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 27.6413
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 9.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -28,7 +28,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
-material = SubResource( 4 )
+material = SubResource( 2 )
 position = Vector2( 0, -17 )
 texture = ExtResource( 3 )
 vframes = 2
@@ -39,23 +39,27 @@ pause_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemReach"]
 pause_mode = 1
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="PlayerHurt" type="Area2D" parent="."]
 pause_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurt"]
 pause_mode = 1
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Pause" type="Timer" parent="."]
 pause_mode = 2
 wait_time = 0.01
 
 [node name="InvulnerableFrames" type="Timer" parent="."]
+
+[node name="Death" type="Timer" parent="."]
+pause_mode = 2
 [connection signal="area_entered" from="ItemReach" to="." method="_on_ItemReach_area_entered"]
 [connection signal="area_exited" from="ItemReach" to="." method="_on_ItemReach_area_exited"]
 [connection signal="area_entered" from="PlayerHurt" to="." method="_on_PlayerHurt_area_entered"]
 [connection signal="area_exited" from="PlayerHurt" to="." method="_on_PlayerHurt_area_exited"]
 [connection signal="timeout" from="Pause" to="." method="_on_Pause_timeout"]
 [connection signal="timeout" from="InvulnerableFrames" to="." method="_on_InvulnerableFrames_timeout"]
+[connection signal="timeout" from="Death" to="." method="_on_Death_timeout"]
