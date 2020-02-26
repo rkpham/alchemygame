@@ -15,7 +15,7 @@ shader = ExtResource( 2 )
 shader_param/scale = 0.0
 shader_param/recolor = Plane( 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
 step = 0.2
@@ -80,7 +80,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idleforward"
 length = 0.4
 loop = true
@@ -146,7 +146,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "idleleft"
 length = 0.4
 loop = true
@@ -212,7 +212,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "idleright"
 length = 0.4
 loop = true
@@ -278,7 +278,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "jumpback"
 length = 1.4
 tracks/0/type = "value"
@@ -342,7 +342,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -8 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "jumpforward"
 length = 1.4
 tracks/0/type = "value"
@@ -406,7 +406,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -8 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "jumpleft"
 length = 1.4
 tracks/0/type = "value"
@@ -470,7 +470,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, -8 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "jumpright"
 length = 1.4
 tracks/0/type = "value"
@@ -558,14 +558,14 @@ position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/idleback = SubResource( 4 )
-anims/idleforward = SubResource( 5 )
-anims/idleleft = SubResource( 6 )
-anims/idleright = SubResource( 7 )
-anims/jumpback = SubResource( 8 )
-anims/jumpforward = SubResource( 9 )
-anims/jumpleft = SubResource( 10 )
-anims/jumpright = SubResource( 11 )
+anims/idleback = SubResource( 3 )
+anims/idleforward = SubResource( 4 )
+anims/idleleft = SubResource( 5 )
+anims/idleright = SubResource( 6 )
+anims/jumpback = SubResource( 7 )
+anims/jumpforward = SubResource( 8 )
+anims/jumpleft = SubResource( 9 )
+anims/jumpright = SubResource( 10 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = -20.0

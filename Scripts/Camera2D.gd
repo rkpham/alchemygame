@@ -1,5 +1,3 @@
-#NOT MINE
-
 extends Camera2D
 
 onready var player = get_node("/root/Game/Map/Player")

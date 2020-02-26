@@ -1,9 +1,16 @@
 extends KinematicBody2D
 
-#Custom signals
+#-------------------------------------------------------------#
+#---------------------------Signals---------------------------#
+#-------------------------------------------------------------#
+
 signal health_changed
 signal new_map_signal
 signal grabbed_item
+
+#-------------------------------------------------------------#
+#--------------------------Variables--------------------------#
+#-------------------------------------------------------------#
 
 onready var camera = get_node("/root/Game/Camera2D")
 onready var ASP = get_node("/root/Game/Audio")
@@ -47,13 +54,18 @@ var a = false
 var s = false
 var d = false
 
+#Working variables
 var horizontal = 0
 var vertical = 0
 var player_turn = 2
 
 var fire_cycle = 1
-var fire_rate = 0.1
+var fire_rate = 1.5
 var firing = false
+
+#-------------------------------------------------------------#
+#--------------------------Functions--------------------------#
+#-------------------------------------------------------------#
 
 #Hurt function
 func hurt(x):
@@ -147,7 +159,7 @@ func _process(delta):
 				if items.find(id) == -1:
 					items.append(id)
 					area.get_parent().queue_free()
-					#Play sound
+					#Play item get sound
 					ASP.stream = ITEM_GET
 					ASP.play()
 					print("Added item " + str(id))
@@ -241,6 +253,10 @@ func _physics_process(delta):
 	if allowedtomove:
 		velocity = move_and_slide(velocity)
 
+#-------------------------------------------------------------#
+#--------------------------Connects---------------------------#
+#-------------------------------------------------------------#
+
 #Checking for items in reach of the player
 func _on_ItemReach_area_entered(area):
 	if area.name == "ItemBound":
@@ -254,6 +270,7 @@ func _on_ItemReach_area_exited(area):
 			nearbyareas.remove(nearbyareas.find(area))
 		area.get_parent().outline = false
 
+#Damage the player
 func _on_PlayerHurt_area_entered(area):
 	if area.name == "Enemy":
 		hurt(area.get_parent().get_parent().damage)
@@ -263,9 +280,11 @@ func _on_PlayerHurt_area_exited(area):
 	if area in nearbyhurtareas:
 		nearbyhurtareas.remove(nearbyhurtareas.find(area))
 
+#Invulnerability frames stuff
 func _on_InvulnerableFrames_timeout():
 	invulnerable = false
 	$Sprite.material.set_shader_param("scale", 0)
 
+#Quit the game when you die
 func _on_Death_timeout():
 	get_tree().quit()

@@ -16,7 +16,7 @@ shader = ExtResource( 2 )
 shader_param/scale = 0.0
 shader_param/recolor = Plane( 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "idleback"
 loop = true
 step = 0.5
@@ -81,7 +81,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idleforward"
 loop = true
 step = 0.5
@@ -146,8 +146,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idleleft"
+[sub_resource type="Animation" id=5]
 loop = true
 step = 0.5
 tracks/0/type = "value"
@@ -276,7 +275,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "stabback"
 length = 0.8
 tracks/0/type = "value"
@@ -340,7 +339,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "stabforward"
 length = 0.8
 tracks/0/type = "value"
@@ -404,8 +403,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "stableft"
+[sub_resource type="Animation" id=9]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -532,7 +530,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "walkback"
 length = 0.8
 loop = true
@@ -598,7 +596,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "walkforward"
 length = 0.8
 loop = true
@@ -664,8 +662,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "walkleft"
+[sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
 step = 0.2
@@ -819,17 +816,17 @@ position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-anims/idleback = SubResource( 4 )
-anims/idleforward = SubResource( 5 )
-anims/idleleft = SubResource( 3 )
+anims/idleback = SubResource( 3 )
+anims/idleforward = SubResource( 4 )
+anims/idleleft = SubResource( 5 )
 anims/idleright = SubResource( 6 )
-anims/stabback = SubResource( 8 )
-anims/stabforward = SubResource( 9 )
-anims/stableft = SubResource( 7 )
+anims/stabback = SubResource( 7 )
+anims/stabforward = SubResource( 8 )
+anims/stableft = SubResource( 9 )
 anims/stabright = SubResource( 10 )
-anims/walkback = SubResource( 12 )
-anims/walkforward = SubResource( 13 )
-anims/walkleft = SubResource( 11 )
+anims/walkback = SubResource( 11 )
+anims/walkforward = SubResource( 12 )
+anims/walkleft = SubResource( 13 )
 anims/walkright = SubResource( 14 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
