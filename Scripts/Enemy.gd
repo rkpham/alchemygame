@@ -189,6 +189,7 @@ func _physics_process(delta):
 				anim.play("jumpleft")
 			elif vectortocardinal(velocity, 4) == 3:
 				anim.play("jumpback")
+#Note: turn all of these if else statements into a function for animations
 
 func _on_Area2D_area_entered(area):
 	#Make mushroom boy stop charging if he hits you
